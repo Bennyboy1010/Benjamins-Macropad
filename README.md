@@ -4,7 +4,11 @@ This is a macro pad that has 16 customizable switches. the keys are layed out in
 ill be mainly using it for games such as msfs 2024, warthunder and ksp. it will also be used for controlling music.
 like play, pause, skip and replay. It wont be able to controll the volume though.
 
+
+
 It was certainly an experience on how to make this. I had to learn Kicad which was a new software to me. It took a while learning all the footprints and etc, but eventually i got there in the end.
+
+
 
 Bom
 
@@ -23,6 +27,8 @@ Bom
 3 m3 head set
 
 (more detail in Bom file)
+
+
 
 I have some spare key switches at home so ill be using those
 
