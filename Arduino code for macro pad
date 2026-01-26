@@ -1,0 +1,61 @@
+#include <Keyboard.h>
+
+// Matrix size
+const uint8_t ROWS = 4;
+const uint8_t COLS = 4;
+
+// Pin definitions
+uint8_t rowPins[ROWS] = { D4, D5, D6, D7 };
+uint8_t colPins[COLS] = { D0, D1, D2, D3 };
+
+// Key map
+uint8_t keyMap[ROWS][COLS] = {
+  { KEY_F1,  KEY_F2,  KEY_F3,  KEY_F4  },
+  { KEY_F5,  KEY_F6,  KEY_F7,  KEY_F8  },
+  { KEY_F9,  KEY_F10, KEY_F11, KEY_F12 },
+  { '#',     '!',     '$',     '@'     }
+};
+
+// Key state tracking (for debounce / no repeats)
+bool keyState[ROWS][COLS] = { false };
+
+void setup() {
+  // Rows as inputs with pullups
+  for (uint8_t r = 0; r < ROWS; r++) {
+    pinMode(rowPins[r], INPUT_PULLUP);
+  }
+
+  // Columns as outputs, idle HIGH
+  for (uint8_t c = 0; c < COLS; c++) {
+    pinMode(colPins[c], OUTPUT);
+    digitalWrite(colPins[c], HIGH);
+  }
+
+  Keyboard.begin();
+}
+
+void loop() {
+  for (uint8_t c = 0; c < COLS; c++) {
+    // Activate one column at a time
+    digitalWrite(colPins[c], LOW);
+
+    for (uint8_t r = 0; r < ROWS; r++) {
+      bool pressed = (digitalRead(rowPins[r]) == LOW);
+
+      if (pressed && !keyState[r][c]) {
+        Keyboard.press(keyMap[r][c]);
+        keyState[r][c] = true;
+      }
+
+      if (!pressed && keyState[r][c]) {
+        Keyboard.release(keyMap[r][c]);
+        keyState[r][c] = false;
+      }
+    }
+
+    // Deactivate column
+    digitalWrite(colPins[c], HIGH);
+  }
+
+  delay(5); // simple debounce
+}
