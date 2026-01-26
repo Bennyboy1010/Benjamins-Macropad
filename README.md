@@ -30,8 +30,7 @@ Bom
 
 
 
-I have some spare key switches at home so ill be using those
-
+![IMG_5191](https://github.com/user-attachments/assets/49648803-08e8-4d06-b35d-a097a3dec06b)
 <img width="1391" height="962" alt="image" src="https://github.com/user-attachments/assets/f155298c-c508-4d29-aba6-40a53c9d56d4" />
 <img width="1549" height="1194" alt="image" src="https://github.com/user-attachments/assets/6448b3bb-cdff-4e98-a683-6da0a58c15db" />
 <img width="1930" height="1060" alt="image" src="https://github.com/user-attachments/assets/2f4f72f1-f53a-41c2-8476-d6aea9bec41c" />
